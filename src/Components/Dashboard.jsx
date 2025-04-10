@@ -5,7 +5,7 @@ import { toast, ToastContainer } from "react-toastify";
 import { format } from "date-fns";
 
 export default function Dashboard() {
-  const [userInfo, setUserInfo] = useState(null);
+ 
   const [allTask, setAllTask] = useState([]);
   const [addTask, setAddTask] = useState({
     title: "",
@@ -18,19 +18,6 @@ export default function Dashboard() {
 
   const navigate = useNavigate();
 
-  const getUserInfo = async () => {
-    try {
-      const res = await axios.get("/getUser");
-      if (res.data && res.data.user) {
-        setUserInfo(res.data.user);
-      }
-    } catch (err) {
-      if (err.response && err.response.status === 401) {
-        localStorage.clear();
-        navigate('/login');
-      }
-    }
-  };
 
   const getAllTask = async () => {
     try {
@@ -81,7 +68,7 @@ export default function Dashboard() {
   };
 
   useEffect(() => {
-    getUserInfo();
+
     getAllTask();
   }, []);
 
@@ -222,6 +209,7 @@ export default function Dashboard() {
                   if (e.key === "Enter") handleSearch();
                 }}
               />
+              <span className="mx-2">press enter to search and remove complete search text to fetch all tasks</span>
             
             </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
