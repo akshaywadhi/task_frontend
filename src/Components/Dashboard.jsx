@@ -136,7 +136,7 @@ export default function Dashboard() {
       <ToastContainer />
 
       <div className="p-4 max-w-4xl mx-auto">
-        <h2 className="text-2xl font-bold text-center mb-6">Task Manager</h2>
+        <h2 className="text-2xl font-bold text-center mb-6">To Do List</h2>
 
         <div className="flex justify-end">
   <button className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700" onClick={logout}>
